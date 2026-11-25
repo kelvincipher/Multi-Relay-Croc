@@ -1,0 +1,22 @@
+version: 1
+pairs:
+  - id: primary
+    relays:
+      - id: relay-a
+        address: 127.0.0.1
+        control_port: 9009
+        data_port: 9010
+      - id: relay-b
+        address: 127.0.0.1
+        control_port: 9019
+        data_port: 9020
+  - id: backup-1
+    relays:
+      - id: relay-c
+        address: 127.0.0.1
+        control_port: 9029
+        data_port: 9030
+      - id: relay-d
+        address: 127.0.0.1
+        control_port: 9039
+        data_port: 9040

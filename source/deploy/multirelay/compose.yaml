@@ -1,0 +1,43 @@
+# Run from the repository root:
+# docker compose -f deploy/multirelay/compose.yaml --env-file deploy/multirelay/.env up --build -d
+services:
+  relay-a:
+    build:
+      context: ../..
+      dockerfile: deploy/multirelay/Dockerfile
+    command: ["relay", "--host", "0.0.0.0", "--ports", "9009,9010"]
+    environment:
+      CROC_PASS: ${CROC_PASS:?Set CROC_PASS in your private .env file}
+    ports: ["127.0.0.1:9009:9009", "127.0.0.1:9010:9010"]
+    read_only: true
+    restart: unless-stopped
+  relay-b:
+    build:
+      context: ../..
+      dockerfile: deploy/multirelay/Dockerfile
+    command: ["relay", "--host", "0.0.0.0", "--ports", "9019,9020"]
+    environment:
+      CROC_PASS: ${CROC_PASS:?Set CROC_PASS in your private .env file}
+    ports: ["127.0.0.1:9019:9019", "127.0.0.1:9020:9020"]
+    read_only: true
+    restart: unless-stopped
+  relay-c:
+    build:
+      context: ../..
+      dockerfile: deploy/multirelay/Dockerfile
+    command: ["relay", "--host", "0.0.0.0", "--ports", "9029,9030"]
+    environment:
+      CROC_PASS: ${CROC_PASS:?Set CROC_PASS in your private .env file}
+    ports: ["127.0.0.1:9029:9029", "127.0.0.1:9030:9030"]
+    read_only: true
+    restart: unless-stopped
+  relay-d:
+    build:
+      context: ../..
+      dockerfile: deploy/multirelay/Dockerfile
+    command: ["relay", "--host", "0.0.0.0", "--ports", "9039,9040"]
+    environment:
+      CROC_PASS: ${CROC_PASS:?Set CROC_PASS in your private .env file}
+    ports: ["127.0.0.1:9039:9039", "127.0.0.1:9040:9040"]
+    read_only: true
+    restart: unless-stopped

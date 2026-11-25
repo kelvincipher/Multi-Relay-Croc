@@ -1,0 +1,20 @@
+{
+  "base_commit": "d77d59a8931d67460574f7603b9446470d475070",
+  "base_branch": "main",
+  "go_version": "1.27.3",
+  "module": "github.com/schollz/croc/v11",
+  "patch_apply_check": "PASS against clean baseline worktree",
+  "linux": {
+    "file": "bin/croc-multirelay-linux-amd64",
+    "build": "go build -o ../croc-multirelay .",
+    "runtime": "PASS: normal, kill-a, kill-b CLI demos"
+  },
+  "windows": {
+    "file": "bin/croc-multirelay-windows-amd64.exe",
+    "build": "GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -tags croc_no_tailcat -trimpath -o ../croc-multirelay-windows-amd64.exe .",
+    "build_exit_code": 0,
+    "runtime": "NOT VERIFIED"
+  },
+  "docker_compose": "NOT VERIFIED: Docker unavailable",
+  "source_files": 560
+}

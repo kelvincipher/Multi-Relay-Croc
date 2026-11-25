@@ -1,0 +1,12 @@
+version: 1
+pairs:
+  - id: primary
+    relays:
+      - id: relay-a
+        address: 127.0.0.1
+        control_port: 19009
+        data_port: 19010
+      - id: relay-b
+        address: 127.0.0.1
+        control_port: 19109
+        data_port: 19110
